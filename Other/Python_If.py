@@ -43,6 +43,9 @@ print(bool(14))
 
 print(isinstance(x, str))
 
+i = 0
+
+
 
 
 
