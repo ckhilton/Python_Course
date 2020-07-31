@@ -25,11 +25,13 @@ class Teacher(Person):
   def thanks(self):
     print("Thank you", self.firstname, self.lastname, "for teaching", self.teachingSubject, "for the last", self.teachingYears, "years")
 
-x = Person("Joe", "Schmoe")
-x.printname()
 
-y = Graduate("Kirk", "Hilton", "UCDH", 2014)
-y.congrats()
+if __name__ == "__main__":
+    x = Person("Joe", "Schmoe")
+    x.printname()
 
-z = Teacher("Mary", "Poppins", "acting", 30)
-z.thanks()
+    y = Graduate("Kirk", "Hilton", "UCDH", 2014)
+    y.congrats()
+
+    z = Teacher("Mary", "Poppins", "acting", 30)
+    z.thanks()
