@@ -14,13 +14,13 @@ def assignment(): #define the function
             ID INTEGER PRIMARY KEY AUTOINCREMENT, \
             text_File TEXT \
             )")
-        path = os.chdir("Files") #get cwd from 'os' module, stored in 'path' 
+        path = os.chdir("Files") #use 'os' module to change current working dir over to "Files", stored in 'path' 
         fileList = os.listdir(path) #gets the list of files in cwd, stored in 'fileList' 
         entries = [] #create empty list
         for i in fileList: #iterate through tuple 'fileList' with var 'i'
             if i.endswith(".txt"): #look for .txt files
                 entries.append((i,)) #append empty 'entries' list with any '.txt' files using (i,) 
-        cur.executemany("INSERT INTO tbl_MyFiles(text_File) VALUES (?)", entries) #use wildcare 
+        cur.executemany("INSERT INTO tbl_MyFiles(text_File) VALUES (?)", entries) #use wildcard for SQL insert 
         conn.commit()
     conn.close() #close connection to 
     for i in fileList: #for better looking print to consule
