@@ -32,6 +32,7 @@ if __name__ == "__main__": #control code
 
     y = Graduate("Kirk", "Hilton", "UCDH", 2014)
     y.congrats() #call and print instance of Graduate class
+    y.printname()
 
     z = Teacher("Mary", "Poppins", "acting", 30)
     z.thanks() #call and print instance of Teacher class

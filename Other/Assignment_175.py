@@ -8,23 +8,23 @@ class club_member:
     email = ""
     password = ""
     def __init__(self,fName,lName,phone,email,password):
-	    self.fName = fName
-	    self.lName = lName
-	    self.phone = phone
-	    self.email = email
-	    self.password = password
+        self.fName = fName
+        self.lName = lName
+        self.phone = phone
+        self.email = email
+        self.password = password
 		
+    def login():
+        entry_fName = input("Enter your first name: ")
+        entry_phone = input("Enter your phone number: ")
+        if (entry_fName == self.fName and entry_phone == self.phone):
+            print("Hello {}!".format(self.fName))
+        else:
+            print("Unauthorized")
 
-def login(self):
-    entry_fName = input("Enter your first name: ")
-    entry_phone = input("Enter your phone number: ")
-    if (entry_fName == self.fName and entry_phone == self.phone):
-        print("Hello {}!".format(self.fName))
-    else:
-        print("Unauthorized")
-
-
-new_member = club_member("Kirk","Hilton","801-310-4722","khilton@gmail.com","HeyBaby!")
+dad = club_member(Kirk, Hilton, 801-310-4722, ckhilton@email.email, 12345)
+dad.login()
+                  
 
 '''
 class child(member):
@@ -39,9 +39,10 @@ class adult(member):
 
 
 
-if __name__ ==  "__main__":
+"""if __name__ ==  "__main__":
+    
     login()
-  
+  """
     
     
     
