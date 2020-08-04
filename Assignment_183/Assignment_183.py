@@ -18,7 +18,7 @@ class user():
             print("Welcome, {} {}! An email was sent to '{}'. Please sign in to your email to retrieve the verification link.\n".format(self.FName,self.LName,self.Email))
         else:
             print("Sorry, your credentials did not match.\nPlease try again.\n")
-            #self.signIn() _an optional loop to give the user multiple tries to sign in.
+            #self.signIn() _an optional loop to give the user multiple tries to sign in with the right credentials.
             
                          
 #CHILD CLASS 1
@@ -36,7 +36,7 @@ class employee(user):
             print("Welcome, {} {}!\nYour annual salary is:\n{}!!!\nAs a reminder, you now have access to the Federal Reserve printing press. Enjoy!\n".format(self.position,self.LName,self.salary))
         else:
             print("Sorry, your credentials did not match./nPlease try again.\n")
-            #self.signIn() _an optional loop to give the user multiple tries to sign in.
+            #self.signIn() _an optional loop to give the employee multiple tries to sign in with the right credentials.
 
 #CHILD CLASS 2
 class intern(user):
@@ -58,7 +58,7 @@ class intern(user):
             print("Welcome, {} {}!\nYour hourly wage is {}.\nAs a reminder, if you don't do what we say, we'll fire you on the spot!".format(self.FName,self.LName,self.Hourly))
         else:
             print("Sorry, your credentials did not match. Please try again.\n")
-            #self.signIn() _an optional loop to give the user multiple tries to sign in.
+            #self.signIn() _an optional loop to give the intern multiple tries to sign in with the right credentials.
 
 
 if __name__ == "__main__": #control code
