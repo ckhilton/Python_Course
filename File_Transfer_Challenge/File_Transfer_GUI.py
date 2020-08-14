@@ -104,10 +104,7 @@ def copy_files():
                 #print(file_modified_time)
                 shutil.copy2(abs_path1, copies)
                 #print(files)
-            elif messagebox.showinfo("Alert!","No new/updated files in the past 24hrs!"):
-                os._exit(0)
-                
-               
+         
 if __name__ == "__main__":
     root = tk.Tk()
     folder_path1=StringVar()
