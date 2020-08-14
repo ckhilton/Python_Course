@@ -50,7 +50,6 @@ class ParentWindow(Frame):
 
         #CATCH IF USER CLICKS 'X' TO CLOSE WINDOW
         self.master.protocol("WM_DELETE_WINDOW", lambda: ask_quit(self))
-        arg = self.master
 
             
 def center_window(self, w, h): #PASS IN TKINTER FRAME (MASTER REFERENCE AND THE W AND H
@@ -85,16 +84,13 @@ def copy_files():
     time_now = datetime.datetime.now() #Get current local time
     tdelta = datetime.timedelta(hours=24) #<timedelta> will set window of time (named 'tdelta' here for a 24 hour window).
     day_ago = time_now - tdelta #Get time from 24 hours ago relative to 'time_now'
-    global abs_path1
-    global abs_path2
     for src_files in os.listdir(dir_path1):
         if src_files.endswith('.txt'): #GET TEXT FILES ONLY
             abs_path1 = os.path.join(dir_path1, src_files)
             file_modified_time = datetime.datetime.fromtimestamp(os.path.getmtime(abs_path1))
-        if file_modified_time < day_ago: #COMPARE FILE MODIFICATION TIMES
-            shutil.copy2(abs_path1, dir_path2) #TRANSFER FILES IF MODIFIED/CREATED LESS THAN 24 HOURS AGO
+            if file_modified_time > day_ago: #COMPARE FILE MODIFICATION TIMES TO LAST 24 HOURS TIME WINDOW
+                shutil.copy2(abs_path1, dir_path2) #TRANSFER ISOLATED FILES 
     messagebox.showinfo("Alert","Source files created or modified\nwithin the last 24 hours have now been\ncopied/updated to the destination folder!")
-        # else file_modified_time > day_ago:
 
          
 if __name__ == "__main__": #CONTROL
