@@ -62,50 +62,42 @@ def center_window(self, w, h): #PASS IN TKINTER FRAME (MASTER REFERENCE AND THE 
     return centerGeo
 
 
-def ask_quit(self):
+def ask_quit(self): #ASK IF OK TO CLOSE GUI
     if messagebox.askokcancel("Exit program", "Okay to exit application?"):
-        #CLOSE GUI
         self.master.destroy()
-        os._exit(0)
 
 
-def browse1():
+def browse1(): #1st function for command in 'btn_browse1' to browse for a source directory
     folder_path1
     global dir_path1 
     dir_path1 = filedialog.askdirectory()
-    #print(dir_path1)
     folder_path1.set(dir_path1)
 
 
-def browse2():
+def browse2(): #2nd function for command in 'btn_browse2' to browse for a destination to copy any modified files
     folder_path2
     global dir_path2
     dir_path2 = filedialog.askdirectory()
-    #print(dir_path2)
     folder_path2.set(dir_path2)
 
 
 def copy_files():
-    #Folder portion
-    working = dir_path1
-    copies = dir_path2
-    #Time portion
     time_now = datetime.datetime.now() #Get current local time
     tdelta = datetime.timedelta(hours=24) #<timedelta> will set window of time (named 'tdelta' here for a 24 hour window).
     day_ago = time_now - tdelta #Get time from 24 hours ago relative to 'time_now'
-    for files in os.listdir(working):
-        if files.endswith('.txt'):
-            abs_path1 = os.path.join(working, files)
-            #print(abs_path1)
+    global abs_path1
+    global abs_path2
+    for src_files in os.listdir(dir_path1):
+        if src_files.endswith('.txt'): #GET TEXT FILES ONLY
+            abs_path1 = os.path.join(dir_path1, src_files)
             file_modified_time = datetime.datetime.fromtimestamp(os.path.getmtime(abs_path1))
-            #print(file_modified_time)
-            #print(file_modified_time)
-            if file_modified_time > day_ago:
-                #print(file_modified_time)
-                shutil.copy2(abs_path1, copies)
-                #print(files)
+        if file_modified_time < day_ago: #COMPARE FILE MODIFICATION TIMES
+            shutil.copy2(abs_path1, dir_path2) #TRANSFER FILES IF MODIFIED/CREATED LESS THAN 24 HOURS AGO
+    messagebox.showinfo("Alert","Source files created or modified\nwithin the last 24 hours have now been\ncopied/updated to the destination folder!")
+        # else file_modified_time > day_ago:
+
          
-if __name__ == "__main__":
+if __name__ == "__main__": #CONTROL
     root = tk.Tk()
     folder_path1=StringVar()
     folder_path2=StringVar()
